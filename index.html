@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para el amor de mi vida</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: #fce4ec;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: #fff0f5;
+      border-radius: 20px;
+      padding: 30px;
+      width: 350px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: left;
+      position: relative;
+    }
+
+    .heart-tree {
+      width: 150px;
+      display: block;
+      margin: 20px auto;
+    }
+
+
+   
+
+    .counter {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .petal {
+      position: absolute;
+      color: #e91e63;
+      font-size: 20px;
+      animation: fall 5s infinite;
+    }
+
+    @keyframes fall {
+      0% { top: -20px; opacity: 1; }
+      100% { top: 100%; opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="cart-icon"></div>
+    <p>Para el amor de mi vida:</p>
+    <p>
+      Si pudiera elegir un lugar<br>
+      seguro, sería a tu lado.<br>
+      Cuanto más tiempo estoy<br>
+      contigo más te amo.<br>
+      Este texto es sólo un ejemplo<br>
+      de demostración y no refleja<br>
+      sentimientos reales.<br>
+      — I Love You!
+    </p>
+
+    <img src="https://static.vecteezy.com/system/resources/previews/013/775/462/non_2x/tree-with-love-hearts-png.png" alt="Árbol corazón" class="heart-tree">
+
+    <div class="counter" id="counter">
+      Mi amor por ti comenzó hace...
+    </div>
+  </div>
+
+  <script>
+    const startDate = new Date("2024-07-20T00:00:00"); // Fecha de inicio
+    const counterEl = document.getElementById("counter");
+
+    function updateCounter() {
+      const now = new Date();
+      const diff = now - startDate;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      counterEl.innerHTML = `
+        Mi amor por ti comenzó hace...<br>
+        <strong>${days}</strong> días
+        <strong>${hours}</strong> horas
+        <strong>${minutes}</strong> minutos
+        <strong>${seconds}</strong> segundos
+      `;
+    }
+
+    setInterval(updateCounter, 1000);
+    updateCounter();
+  </script>
+</body>
+</html>
